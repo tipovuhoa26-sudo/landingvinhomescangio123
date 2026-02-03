@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Paradise - Hòa Mình Giữa Thiên Nhiên</title>
+    <title>Green Paradise - Kỳ Quan Nghỉ Dưỡng Cần Giờ</title>
+    
+    <!-- SEO & Fonts -->
+    <meta name="description" content="Khu đô thị sinh thái ven biển Green Paradise Cần Giờ - Nơi thiên nhiên giao hòa cùng nhịp sống thượng lưu.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -27,25 +31,457 @@
             }
         }
     </script>
+
     <style>
-        .hero-overlay {
-            background: linear-gradient(180deg, rgba(6, 95, 70, 0.2) 0%, rgba(6, 95, 70, 0.8) 100%);
+        /* Base Styles & Utilities */
+        body { font-family: 'Montserrat', sans-serif; }
+        .font-display { font-family: 'Playfair Display', serif; }
+        
+        /* Animations */
+        @keyframes ken-burns {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .animate-ken-burns { animation: ken-burns 20s ease-in-out infinite; }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Custom UI */
+        .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+        .hero-gradient { background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 60%, rgba(6, 95, 70, 0.9) 100%); }
+        .text-shadow-gold { text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 <script type="importmap">
 {
   "imports": {
     "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react": "https://esm.sh/react@^19.2.4"
   }
 }
 </script>
 </head>
-<body class="bg-light-bg text-slate-800 font-sans">
-    <div id="root"></div>
+<body class="bg-light-bg text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <div class="flex items-center">
+                <h1 class="font-display text-2xl md:text-3xl font-bold tracking-tighter text-white logo-text">
+                    GREEN <span class="text-secondary">PARADISE</span>
+                </h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#tong-quan" class="nav-link text-[11px] font-bold tracking-[0.2em] text-white/90 hover:text-white transition-all border-b-2 border-transparent hover:border-secondary pb-1">TỔNG QUAN</a>
+                <a href="#quy-hoach" class="nav-link text-[11px] font-bold tracking-[0.2em] text-white/90 hover:text-white transition-all border-b-2 border-transparent hover:border-secondary pb-1">QUY HOẠCH</a>
+                <a href="#tien-ich" class="nav-link text-[11px] font-bold tracking-[0.2em] text-white/90 hover:text-white transition-all border-b-2 border-transparent hover:border-secondary pb-1">TIỆN ÍCH</a>
+                <a href="#san-pham" class="nav-link text-[11px] font-bold tracking-[0.2em] text-white/90 hover:text-white transition-all border-b-2 border-transparent hover:border-secondary pb-1">SẢN PHẨM</a>
+            </nav>
+
+            <button class="header-btn px-7 py-2.5 rounded-full font-bold text-[11px] tracking-widest transition-all duration-300 shadow-xl bg-white text-primary hover:bg-secondary hover:text-white active:scale-95">
+                NHẬN BÁO GIÁ
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsN4rsncSTAZ3ylkGff8pUbf-5iJVVlTxduC73OlcmrLVnvquzs5zEOvNV5o_qypu_768ZvD3AlkgdPclywaPeiBohtzc0Ag4nlg1AFHBRy_2-TrCovofN7v5wd-DYADsXNoWxu6hJF9sobhapIfwicsFzgE61VXiEBnMtSxS8ATosAZFfxwqcMlLzqhEqL6fTXMnCcJ5LgWz9ODW13Lr_lJuhQHJE3oQPNIGpFrEJJ8eneT3z1D3CnFfdBsofiodI2NV8Apntzw" 
+                 alt="Green Paradise View" 
+                 class="w-full h-full object-cover animate-ken-burns">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 text-center text-white px-4 max-w-5xl">
+            <div class="inline-block px-4 py-1 border-y border-secondary/50 mb-6" style="animation: fadeInUp 1s ease-out;">
+                <p class="text-xs md:text-sm font-bold tracking-[0.5em] uppercase text-secondary">Khu Đô Thị Sinh Thái Ven Biển Cần Giờ</p>
+            </div>
+            
+            <h1 class="text-6xl md:text-9xl font-display font-bold mb-6 leading-none tracking-tighter" style="animation: fadeInUp 1s ease-out 0.2s forwards; opacity:0;">
+                GREEN<br/><span class="text-secondary italic">PARADISE</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-emerald-50/90 font-light italic mb-12" style="animation: fadeInUp 1s ease-out 0.4s forwards; opacity:0;">
+                "Nơi thiên nhiên giao hòa cùng nhịp sống thượng lưu"
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto" style="animation: fadeInUp 1s ease-out 0.6s forwards; opacity:0;">
+                <div class="bg-white/10 backdrop-blur-md border border-white/10 p-5 rounded-2xl group hover:bg-white/20 transition-all">
+                    <div class="text-secondary text-2xl md:text-3xl font-bold mb-1">2.870 ha</div>
+                    <div class="text-[10px] font-bold tracking-[0.2em] text-emerald-100/70">TỔNG DIỆN TÍCH</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/10 p-5 rounded-2xl group hover:bg-white/20 transition-all">
+                    <div class="text-secondary text-2xl md:text-3xl font-bold mb-1">10 Tỷ USD</div>
+                    <div class="text-[10px] font-bold tracking-[0.2em] text-emerald-100/70">VỐN ĐẦU TƯ</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/10 p-5 rounded-2xl group hover:bg-white/20 transition-all">
+                    <div class="text-secondary text-2xl md:text-3xl font-bold mb-1">6 Phân Khu</div>
+                    <div class="text-[10px] font-bold tracking-[0.2em] text-emerald-100/70">TIỆN ÍCH ĐẶC QUYỀN</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce opacity-60">
+            <span class="text-[10px] font-bold tracking-widest text-white mb-2 uppercase">Cuộn xuống</span>
+            <span class="material-symbols-outlined text-white">expand_more</span>
+        </div>
+    </section>
+
+    <!-- Registration Bar -->
+    <section class="bg-dark-green py-10 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="text-white flex items-center space-x-6">
+                <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center border border-secondary/30">
+                    <span class="material-symbols-outlined text-3xl text-secondary">mail_outline</span>
+                </div>
+                <div>
+                    <h4 class="font-display text-xl md:text-2xl font-bold text-secondary">Đặc Quyền Ưu Tiên</h4>
+                    <p class="text-emerald-100/60 text-sm">Đăng ký nhận bảng giá đợt 1 & Ưu đãi chiết khấu 2%</p>
+                </div>
+            </div>
+            
+            <form class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto flex-grow max-w-3xl">
+                <input type="text" placeholder="Họ và tên" class="bg-primary/30 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-emerald-200/30 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none flex-grow transition-all">
+                <input type="tel" placeholder="Số điện thoại" class="bg-primary/30 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-emerald-200/30 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none flex-grow transition-all">
+                <button type="submit" class="bg-secondary hover:bg-yellow-600 text-primary font-bold px-10 py-4 rounded-full transition-all whitespace-nowrap shadow-lg uppercase text-xs tracking-widest">
+                    GỬI YÊU CẦU
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tong-quan" class="py-24 bg-white overflow-hidden reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4 block">Di Sản Xanh Tương Lai</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-dark-green mb-8 leading-tight">
+                        Kỳ quan nghỉ dưỡng <span class="text-secondary italic font-normal">giữa lòng di sản</span> rừng ngập mặn
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-8">
+                        Green Paradise không chỉ là một dự án bất động sản, mà là một lời cam kết về phong cách sống bền vững. Với tâm điểm là sự bảo tồn và tái tạo, chúng tôi kiến tạo không gian nơi con người tìm thấy sự bình yên nguyên bản nhất.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-emerald-50 text-primary rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined">eco</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-dark-green uppercase text-xs tracking-wider mb-1">Hệ sinh thái chuẩn quốc tế</h5>
+                                <p class="text-sm text-slate-500">Bảo tồn 100% dải rừng phòng hộ ven biển Cần Giờ.</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-emerald-50 text-primary rounded-lg flex items-center justify-center">
+                                <span class="material-symbols-outlined">diamond</span>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-dark-green uppercase text-xs tracking-wider mb-1">Giá trị sống tinh hoa</h5>
+                                <p class="text-sm text-slate-500">Cộng đồng cư dân đẳng cấp, an ninh và riêng tư tuyệt đối.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 md:gap-6 relative">
+                    <div class="bg-emerald-50 p-8 rounded-2xl border border-emerald-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-all">
+                        <span class="material-symbols-outlined text-3xl text-primary mb-4 block">forest</span>
+                        <div class="text-2xl md:text-3xl font-display font-bold text-dark-green mb-1">45%</div>
+                        <div class="text-[10px] font-bold text-primary tracking-widest uppercase">Mật độ xanh</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-secondary flex flex-col items-center text-center group hover:-translate-y-2 transition-all shadow-lg">
+                        <span class="material-symbols-outlined text-3xl text-primary mb-4 block">payments</span>
+                        <div class="text-2xl md:text-3xl font-display font-bold text-dark-green mb-1">217 Tr/m²</div>
+                        <div class="text-[10px] font-bold text-primary tracking-widest uppercase">Giá khởi điểm</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-emerald-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-all">
+                        <span class="material-symbols-outlined text-3xl text-primary mb-4 block">verified_user</span>
+                        <div class="text-2xl md:text-3xl font-display font-bold text-dark-green mb-1">Sở Hữu</div>
+                        <div class="text-[10px] font-bold text-primary tracking-widest uppercase">Lâu dài</div>
+                    </div>
+                    <div class="bg-emerald-50 p-8 rounded-2xl border border-emerald-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-all">
+                        <span class="material-symbols-outlined text-3xl text-primary mb-4 block">tsunami</span>
+                        <div class="text-2xl md:text-3xl font-display font-bold text-dark-green mb-1">100%</div>
+                        <div class="text-[10px] font-bold text-primary tracking-widest uppercase">View biển/sông</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Plan -->
+    <section id="quy-hoach" class="bg-primary py-24 text-white relative overflow-hidden reveal">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 translate-x-32 -z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <span class="text-secondary font-bold text-xs tracking-[0.3em] uppercase mb-4 block">Visionary Design</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold leading-tight">Quy Hoạch Tổng Thể <br>Bền Vững <span class="text-secondary italic">Tầm Nhìn 2050</span></h2>
+                </div>
+                <p class="text-emerald-100/60 lg:max-w-sm text-sm">Green Paradise được quy hoạch thành các phân khu chức năng đa dạng, đáp ứng mọi nhu cầu sống và hưởng thụ.</p>
+            </div>
+
+            <div class="relative mb-20">
+                <div class="bg-white p-3 md:p-5 rounded-3xl shadow-2xl relative group overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaLTT5XIVBkvZfZkEiNebUH3JcfbkskOdfSv4eO-_vD0qteoAuYquV1uep0XKM3bqW1ISguGeIOlqIXJSqFb3AI8YZEgQLhpUQMfE06E184GjjtfMBdBjTuOJhTilMlz84O1wn2U4WXQBoifnq-ZoCQoRwCVOxgxTMuc-b7-B1HwJx9rPjJHxxJsuyejNWH59GFf6j3kibijdDW-m8RaCqjXAqScHAuScnUdDHPC-4PEyvV-jgEeVN_-JaStajfKWa_wc_XlhZOg" 
+                         alt="Master Plan" class="w-full h-auto rounded-2xl group-hover:scale-[1.02] transition-transform duration-[3s]">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div>
+                    <div class="w-10 h-1 bg-secondary mb-6"></div>
+                    <h5 class="font-bold text-xs text-secondary tracking-widest mb-2">PHÂN KHU A</h5>
+                    <h4 class="text-xl font-display font-bold mb-3 uppercase">Canopy Town</h4>
+                    <p class="text-emerald-100/50 text-sm leading-relaxed">Trái tim giao thương & căn hộ cao cấp.</p>
+                </div>
+                <div>
+                    <div class="w-10 h-1 bg-secondary mb-6"></div>
+                    <h5 class="font-bold text-xs text-secondary tracking-widest mb-2">PHÂN KHU B</h5>
+                    <h4 class="text-xl font-display font-bold mb-3 uppercase">Forest Resort</h4>
+                    <p class="text-emerald-100/50 text-sm leading-relaxed">Khu nghỉ dưỡng sinh thái tiêu chuẩn 6 sao.</p>
+                </div>
+                <div>
+                    <div class="w-10 h-1 bg-secondary mb-6"></div>
+                    <h5 class="font-bold text-xs text-secondary tracking-widest mb-2">PHÂN KHU C</h5>
+                    <h4 class="text-xl font-display font-bold mb-3 uppercase">Safari Park</h4>
+                    <p class="text-emerald-100/50 text-sm leading-relaxed">Công viên thám hiểm VinWonders Safari.</p>
+                </div>
+                <div>
+                    <div class="w-10 h-1 bg-secondary mb-6"></div>
+                    <h5 class="font-bold text-xs text-secondary tracking-widest mb-2">PHÂN KHU D</h5>
+                    <h4 class="text-xl font-display font-bold mb-3 uppercase">Floating Villas</h4>
+                    <p class="text-emerald-100/50 text-sm leading-relaxed">Dinh thự mặt nước thượng lưu bậc nhất.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section id="tien-ich" class="py-24 bg-light-bg overflow-hidden reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <span class="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4 block">Unparalleled Lifestyle</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-dark-green mb-6 uppercase">Hệ Sinh Thái Tiện Ích Đẳng Cấp</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWaTNr6DURFG60ge5Am4gqxB9As6hSyK_jGnPNvyHD7P0tNw8U1vt0lKs5n3CK3XMkF8KqR8BFeHwQrw0cHF-wrHLcfqCawj1EQtvS8Mv1iPUn3ieB0UtL0zmylHSIh9KEe5zxooNLx-Jzy-U9dLcqHuOO4u4k7T3lnAB5EqkeDFAJ3RSs9JQIYSu_ZuQu_kQCk6WCIImLWVPn-UTDZPbdXbrvjcHiRNBDyddiEavUON9smqvNh2uZxXCyDdYkmfbVAL1SiTZ9HA" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-[10px] font-bold text-primary bg-emerald-50 px-3 py-1 rounded-full mb-4 inline-block tracking-widest uppercase">Sức khỏe</span>
+                        <h4 class="text-2xl font-display font-bold text-dark-green mb-3 uppercase">Hồ Bơi Nước Mặn</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Công nghệ lọc sinh học tiên tiến, thân thiện với làn da.</p>
+                        <a href="#" class="inline-flex items-center text-primary font-bold text-xs tracking-widest uppercase">Khám phá <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCERq7hi8fAfefyGzAggspAEF1h7-tBhtSyuvruN6J7-wU5wdEKun5u2u3SDfxs4y_XsEx3kNOdvn_2NGjcMxT0u_XFwBzWRhYOduST5nIAHLVOvZBAjrL-mJ376Z2XkwLD9WCi1OVWi3VkESUnIa56_ZZu_Rw0vChUSP1qREm6yhoSiT8EFW1WilS0UHAwAcEzgLR8ws3LOLwZZWG5rYlSKTildW2zibE6LfCdvkqc9O5QEcZTEje0Dt3uqVGfur4Es6b_Sy0Mmw" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-[10px] font-bold text-primary bg-emerald-50 px-3 py-1 rounded-full mb-4 inline-block tracking-widest uppercase">Thân tâm</span>
+                        <h4 class="text-2xl font-display font-bold text-dark-green mb-3 uppercase">Rừng Thiền Định</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Cân bằng tâm trí dưới tán rừng phòng hộ xanh mát.</p>
+                        <a href="#" class="inline-flex items-center text-primary font-bold text-xs tracking-widest uppercase">Khám phá <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjhEd34cBJgFDAdkCGe65pQ_undRkKUVpBBsnd63wLL0uE8e9iWy8wFryhj4fPa6S327tDuRZO42Y2vwUGgxPcT4DWpPudq_2gn1tEuqfcHkreLqACBCqsHgBam0Q7VRxuyhQfCSkm2KLOjnkybouOAy-iqmMzq_Byb7A8ysZMotX6nCd2z20eskF1vBUR0WebfmQOxfDcWdix0Lcsv-90R2okvhSWyMy_rNH0x4igJgPsT8oZlm70J-4vvuaPVmoLLC6pZNARcA" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <span class="text-[10px] font-bold text-primary bg-emerald-50 px-3 py-1 rounded-full mb-4 inline-block tracking-widest uppercase">Thượng lưu</span>
+                        <h4 class="text-2xl font-display font-bold text-dark-green mb-3 uppercase">Bến Du Thuyền</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Cửa ngõ dẫn lối đến những hành trình khám phá vịnh biển.</p>
+                        <a href="#" class="inline-flex items-center text-primary font-bold text-xs tracking-widest uppercase">Khám phá <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Table -->
+    <section id="san-pham" class="py-24 bg-white reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <span class="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4 block">Signature Collection</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-dark-green uppercase">Kiệt Tác Nghỉ Dưỡng</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Card 1 -->
+                <div class="bg-white p-10 rounded-3xl border border-emerald-100 flex flex-col hover:shadow-2xl transition-all group">
+                    <h5 class="text-[10px] font-bold text-primary tracking-widest uppercase mb-4">Canopy District</h5>
+                    <h4 class="text-2xl font-display font-bold text-dark-green mb-4 uppercase">Green Apartment</h4>
+                    <p class="text-slate-500 text-sm mb-10">Căn hộ thiết kế mở, đón trọn vẹn gió biển.</p>
+                    <div class="space-y-4 mb-12 flex-grow">
+                        <div class="flex justify-between items-center border-b border-emerald-50 pb-3">
+                            <span class="text-slate-400 text-xs uppercase tracking-tighter">Diện tích</span>
+                            <span class="font-bold text-dark-green">45m² - 120m²</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-emerald-50 pb-3">
+                            <span class="text-slate-400 text-xs uppercase tracking-tighter">Tầm nhìn</span>
+                            <span class="font-bold text-dark-green">Vịnh Biển</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400 text-xs uppercase tracking-tighter">Giá dự kiến</span>
+                            <span class="font-display font-bold text-primary text-xl uppercase">Từ 6.5 Tỷ</span>
+                        </div>
+                    </div>
+                    <button class="w-full border-2 border-primary text-primary font-bold py-4 rounded-xl hover:bg-primary hover:text-white transition-all uppercase text-[10px] tracking-widest">Nhận bảng giá</button>
+                </div>
+
+                <!-- Card 2 - Featured -->
+                <div class="bg-primary text-white p-10 rounded-[2.5rem] border-4 border-secondary/30 shadow-2xl flex flex-col md:scale-105 z-10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-secondary text-primary font-bold px-10 py-2 rotate-45 translate-x-10 translate-y-4 text-[10px] tracking-widest">EXCLUSIVE</div>
+                    <h5 class="text-[10px] font-bold text-secondary tracking-widest uppercase mb-4">Heritage Zone</h5>
+                    <h4 class="text-3xl font-display font-bold mb-4 uppercase">Forest Villa</h4>
+                    <p class="text-emerald-100/60 text-sm mb-10 leading-relaxed">Biệt thự đơn lập ẩn mình giữa tán rừng cổ thụ.</p>
+                    <div class="space-y-4 mb-12 flex-grow">
+                        <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                            <span class="text-emerald-100/40 text-xs uppercase">Diện tích</span>
+                            <span class="font-bold">350m² - 800m²</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                            <span class="text-emerald-100/40 text-xs uppercase">Tiện ích</span>
+                            <span class="font-bold">Hồ bơi riêng</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-emerald-100/40 text-xs uppercase">Giá từ</span>
+                            <span class="font-display font-bold text-secondary text-3xl uppercase">45 Tỷ</span>
+                        </div>
+                    </div>
+                    <button class="w-full bg-secondary text-primary font-extrabold py-5 rounded-2xl hover:bg-white transition-all uppercase text-[10px] tracking-[0.2em]">Liên hệ đặt chỗ</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-10 rounded-3xl border border-emerald-100 flex flex-col hover:shadow-2xl transition-all group">
+                    <h5 class="text-[10px] font-bold text-primary tracking-widest uppercase mb-4">Boulevard Walk</h5>
+                    <h4 class="text-2xl font-display font-bold text-dark-green mb-4 uppercase">Eco-Shophouse</h4>
+                    <p class="text-slate-500 text-sm mb-10">Tâm điểm giao thương sầm uất nhất dự án.</p>
+                    <div class="space-y-4 mb-12 flex-grow">
+                        <div class="flex justify-between items-center border-b border-emerald-50 pb-3">
+                            <span class="text-slate-400 text-xs uppercase tracking-tighter">Diện tích</span>
+                            <span class="font-bold text-dark-green">120m² - 250m²</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-emerald-50 pb-3">
+                            <span class="text-slate-400 text-xs uppercase tracking-tighter">Kết cấu</span>
+                            <span class="font-bold text-dark-green">1 Trệt, 3 Lầu</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400 text-xs uppercase tracking-tighter">Giá từ</span>
+                            <span class="font-display font-bold text-primary text-xl uppercase">18 Tỷ</span>
+                        </div>
+                    </div>
+                    <button class="w-full border-2 border-primary text-primary font-bold py-4 rounded-xl hover:bg-primary hover:text-white transition-all uppercase text-[10px] tracking-widest">Nhận bảng giá</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-green text-white pt-24 pb-12 border-t-[10px] border-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-24">
+                <div class="lg:col-span-2">
+                    <h1 class="font-display text-4xl font-bold tracking-tighter text-secondary mb-8">GREEN PARADISE</h1>
+                    <p class="text-emerald-100/50 text-base leading-relaxed mb-10 max-w-md">Kiến tạo chuẩn sống mới tại Cần Giờ, hài hòa giữa sự xa hoa và giá trị bảo tồn thiên nhiên.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm tracking-widest mb-8 text-secondary uppercase">Liên Hệ</h5>
+                    <ul class="space-y-4 text-emerald-100/60 text-sm">
+                        <li class="flex items-start"><span class="material-symbols-outlined text-secondary mr-4">location_on</span> Sales Gallery, Cần Giờ, TP. HCM</li>
+                        <li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-4">call</span> +84 356 158 866</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm tracking-widest mb-8 text-secondary uppercase">Khám Phá</h5>
+                    <ul class="space-y-4 text-emerald-100/60 text-sm font-medium uppercase tracking-tighter">
+                        <li><a href="#" class="hover:text-secondary transition-all">Tiến độ dự án</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-all">Chính sách bán hàng</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-all">Pháp lý dự án</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-12 text-center text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-800">
+                © 2024 Green Paradise Group. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="fixed bottom-8 right-8 flex flex-col space-y-4 z-50">
+        <a href="tel:+84356158866" class="w-14 h-14 bg-secondary text-primary rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined font-bold">call</span>
+        </a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-14 h-14 bg-white text-primary rounded-full flex items-center justify-center shadow-xl hover:bg-emerald-50 transition-colors">
+            <span class="material-symbols-outlined">expand_less</span>
+        </button>
+    </div>
+
+    <script>
+        // Header Scroll Logic
+        const header = document.getElementById('main-header');
+        const logo = header.querySelector('.logo-text');
+        const links = header.querySelectorAll('.nav-link');
+        const btn = header.querySelector('.header-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('glass', 'shadow-lg', 'py-3');
+                header.classList.remove('py-6');
+                logo.classList.add('text-primary');
+                logo.classList.remove('text-white');
+                links.forEach(link => {
+                    link.classList.add('text-slate-700');
+                    link.classList.remove('text-white/90');
+                });
+                btn.classList.add('bg-primary', 'text-white');
+                btn.classList.remove('bg-white', 'text-primary');
+            } else {
+                header.classList.remove('glass', 'shadow-lg', 'py-3');
+                header.classList.add('py-6');
+                logo.classList.remove('text-primary');
+                logo.classList.add('text-white');
+                links.forEach(link => {
+                    link.classList.remove('text-slate-700');
+                    link.classList.add('text-white/90');
+                });
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-white', 'text-primary');
+            }
+        });
+
+        // Intersection Observer for Reveal on Scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>

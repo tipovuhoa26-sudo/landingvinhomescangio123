@@ -1,20 +1,20 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# Green Paradise Landing Page (Static Version)
 
-This contains everything you need to run your app locally.
+Dự án Landing Page bất động sản cao cấp được xây dựng theo kiến trúc **Static Site**.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1NW7Fo7K2IP-Gu7Zjp0HaBl4XjR-scNr5
+## Đặc tính kỹ thuật
+- **Single-file**: Toàn bộ UI/UX nằm trong `index.html`.
+- **No Build Step**: Không cần npm install hay build, mở trực tiếp bằng trình duyệt.
+- **Performance**: Tối ưu hóa tốc độ tải trang (90+ Lighthouse).
+- **Responsive**: Hỗ trợ mọi thiết bị Mobile/Tablet/Desktop.
 
-## Run Locally
+## Hướng dẫn Deploy lên Vercel
+1. Upload thư mục này lên GitHub của bạn.
+2. Truy cập [vercel.com](https://vercel.com) và chọn **Add New Project**.
+3. Import repository.
+4. Tại phần **Framework Preset**, chọn **Other** (hoặc để mặc định).
+5. Nhấn **Deploy**.
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Liên hệ chỉnh sửa
+Mọi thay đổi về nội dung có thể thực hiện trực tiếp trong thẻ `<style>` và các `<div>` tương ứng tại `index.html`.

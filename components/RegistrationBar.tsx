@@ -3,13 +3,16 @@ import React from 'react';
 
 const RegistrationBar: React.FC = () => {
   return (
-    <section className="bg-primary py-8 shadow-inner">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-6">
-        <div className="text-white flex items-center space-x-4">
-          <span className="material-symbols-outlined text-4xl text-secondary">mail</span>
+    <section className="bg-dark-green py-10 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="text-white flex items-center space-x-6">
+          <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center border border-secondary/30">
+            <span className="material-symbols-outlined text-3xl text-secondary">mail_outline</span>
+          </div>
           <div>
-            <h4 className="font-bold text-lg">Đăng ký nhận thông tin mới nhất</h4>
-            <p className="text-emerald-100/70 text-sm">Cập nhật tiến độ dự án & chính sách bán hàng đợt 1</p>
+            <h4 className="font-display text-xl md:text-2xl font-bold text-secondary">Đặc Quyền Ưu Tiên</h4>
+            <p className="text-emerald-100/60 text-sm">Đăng ký nhận bảng giá đợt 1 & Ưu đãi chiết khấu 2%</p>
           </div>
         </div>
         
@@ -17,15 +20,15 @@ const RegistrationBar: React.FC = () => {
           <input 
             type="text" 
             placeholder="Họ và tên" 
-            className="bg-emerald-900/40 border border-white/20 rounded px-4 py-3 text-white placeholder:text-emerald-200/50 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none flex-grow"
+            className="bg-primary/30 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-emerald-200/30 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none flex-grow transition-all"
           />
           <input 
             type="tel" 
             placeholder="Số điện thoại" 
-            className="bg-emerald-900/40 border border-white/20 rounded px-4 py-3 text-white placeholder:text-emerald-200/50 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none flex-grow"
+            className="bg-primary/30 border border-white/10 rounded-full px-6 py-4 text-white placeholder:text-emerald-200/30 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none flex-grow transition-all"
           />
-          <button className="bg-secondary hover:bg-yellow-600 text-primary font-extrabold px-10 py-3 rounded transition-all whitespace-nowrap">
-            NHẬN NGAY
+          <button className="bg-secondary hover:bg-yellow-600 text-primary font-bold px-10 py-4 rounded-full transition-all whitespace-nowrap shadow-lg hover:shadow-secondary/20 hover:-translate-y-1 active:translate-y-0 uppercase text-xs tracking-widest">
+            GỬI YÊU CẦU
           </button>
         </form>
       </div>
